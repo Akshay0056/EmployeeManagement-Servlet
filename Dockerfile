@@ -20,8 +20,8 @@ FROM tomcat:10.1-jdk17
 # Remove default ROOT app
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy WAR from build stage to Tomcat
-COPY --from=build /app/target/employee-managements.war /usr/local/tomcat/webapps/employee-managements.war
+# Copy WAR from build stage to Tomcat AS ROOT.war
+COPY --from=build /app/target/employee-managements.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
